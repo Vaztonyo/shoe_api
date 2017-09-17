@@ -53,7 +53,7 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({
   extended: false
-}))
+}), bodyParser.json())
 
 app.set('view engine', 'handlebars');
 
@@ -104,9 +104,16 @@ app.post('/api/shoes/sold/:id', function(req, res) {
   const soldShoes = req.params.id;
   res.json(soldShoes);
 });
+
 app.post('/api/shoes', function(req, res) {
-  // console.log(data);
-  res.render('allShoes');
+  console.log(req.body);
+  res.send({
+    Color: req.body.color,
+    Brand: req.body.brandname,
+    Size: req.body.size,
+    Cash: req.body.cash,
+    In_Stock: req.body.in_stock
+  });
 });
 
 app.listen(port, function() {
