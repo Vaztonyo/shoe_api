@@ -77,19 +77,37 @@ app.get('/api/shoes', function(req, res) {
   })
 });
 app.get('/api/shoes/brand/:brandname', function(req, res) {
-  const shoeBrand = req.params.brandname;
+  // capitalizing route parameters
+  const capitalize = req.params.brandname.substring(0,1);
+  const toUpperCase = req.params.brandname.substring(0,1).toUpperCase();
 
-  res.json({
-    Brand_Name: shoeBrand,
+  const brandname = req.params.brandname.replace(capitalize, toUpperCase);
+  shoeModel.find({brand:brandname}, function(error, results){
+    if (error) {
+      console.log(error);
+    }else {
+      res.render('allShoes',{
+          shoeInfo: results
+      });
+    }
   });
 });
 app.get('/api/shoes/brand/:brandname/size/:size', function(req, res) {
-  const shoeBrand = req.params.brandname;
-  const shoeSize = req.params.size;
+  // capitalizing route parameters
+  const capitalize = req.params.brandname.substring(0,1);
+  const toUpperCase = req.params.brandname.substring(0,1).toUpperCase();
 
-  res.json({
-    Brand_Name: shoeBrand,
-    Brand_Size: shoeSize
+  const brandname = req.params.brandname.replace(capitalize, toUpperCase);
+  const brandsize = req.params.size;
+
+  shoeModel.find({brand:brandname, size:brandsize}, function(error, results){
+    if (error) {
+      console.log(error);
+    }else {
+      res.render('allShoes',{
+          shoeInfo: results
+      });
+    }
   });
 });
 app.post('/api/shoes/sold/:id', function(req, res) {
