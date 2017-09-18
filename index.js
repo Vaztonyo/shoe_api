@@ -79,8 +79,10 @@ app.get('/api/shoes', function(req, res) {
     if (error) {
       console.log(error);
     } else {
-      // console.log(color.results);
-      res.json(results);
+      console.log(results);
+      res.render('allShoes',{
+          shoeInfo: results
+      });
     }
   })
 });
@@ -103,6 +105,10 @@ app.get('/api/shoes/brand/:brandname/size/:size', function(req, res) {
 app.post('/api/shoes/sold/:id', function(req, res) {
   const soldShoes = req.params.id;
   res.json(soldShoes);
+});
+app.get('/admin', function(req, res) {
+  // console.log(data);
+  res.render('admin');
 });
 app.post('/api/shoes', function(req, res) {
   // console.log(data);

@@ -17,19 +17,24 @@
   <!-- bootstrap JQUERY & POPPER CDNS -->
 
   <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <style media="screen">
+    body{
+      font-family: 'Quicksand', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
-      <div class="bg-danger p-4">
-        <h4 class="text-white">Shoe API</h4>
-        <span class="text-muted"><a href="#">All Shoes</a></span>
+      <div class="bg-warning p-4">
+        <h4 class="text-white text-center">Shoe API</h4>
+        <a href="/api/shoes"><span class="btn btn-light text-warning">All Shoes</span></a>
+        <a href="/admin"><span class="btn btn-light text-warning">Admin</span></a>
       </div>
     </div>
-    <nav class="navbar navbar-dark bg-danger">
+    <nav class="navbar navbar-dark bg-warning">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
