@@ -11,10 +11,9 @@
     <br>
     <!-- ADMIN FORM -->
     <div class="row">
-      <div class="col-lg-4"></div>
       <div class="col-lg-4">
         <form class="form-group" action="api/shoes" method="post">
-          <h2 class="text-center">Update Stock</h2><br>
+          <h2 class="text-center">Add Stock</h2><br>
           <input class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
           <input class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
           <input class="form-control text-center" type="text" name="color" placeholder="color"><br>
@@ -25,6 +24,16 @@
         </form>
       </div>
       <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <form class="form-group" action="/delete" method="post">
+          <h2 class="text-center">Delete Stock</h2><br>
+          {{#if messeges.deleted}}
+          <p class="alert alert-danger">{{messeges.deleted}}</p>
+          {{/if}}
+          <input class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
+          <input class="btn btn-success btn-block" type="submit" value="DELELTE">
+        </form>
+      </div>
     </div>
     <!-- END ADMIN FORM -->
   </div>

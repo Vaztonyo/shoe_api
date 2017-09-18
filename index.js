@@ -11,6 +11,18 @@ const data = require('./data')
 
 
 const app = express();
+app.use(flash());
+
+app.set('trust proxy', 1);
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60000 * 30
+  }
+}));
 const port = process.env.PORT || 8083
 const local_db = process.env.MONGO_DB_URL || ('mongodb://localhost/shoe_api');
 
@@ -139,6 +151,19 @@ app.post('/api/shoes', function(req, res) {
 
   newShoeEntry.save();
   console.log(brand );
+});
+app.post('/delete', function(req, res) {
+
+  const id = req.body.id;
+  shoeModel.deleteOne({id:id}, function(error, results){
+    if (error) {
+      console.log(error);
+    }else {
+       req.flash('deleted', 'You have successfully deleted ' + id);
+      res.render('admin')
+    }
+  });
+  // console.log(brand );
 });
 
 app.listen(port, function() {
