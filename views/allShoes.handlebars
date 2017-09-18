@@ -24,11 +24,38 @@
                 <li class="list-group-item">In Stock: {{in_stock}}</li>
               </ul>
             </div>
-            <form class="" action="" method="post">
+            <!-- BUTTON TRIGGER MODAL -->
               <div class="text-center">
-                <input class="btn btn-success btn-block" type="submit" name="" value="Buy">
+                <input class="btn btn-success btn-block" type="submit" name="" value="Buy" data-toggle="modal" data-target="#{{brand}}">
               </div>
-            </form>
+            <!-- BUY MODAL -->
+            <div class="modal fade" id="{{brand}}" tabindex="-1" role="dialog" aria-labelledby="{{brand}}Label" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{brand}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <li class="list-group-item">Cash: R {{cash}}</li>
+                    <li class="list-group-item">Color: {{color}}</li>
+                    <li class="list-group-item">Size: {{size}}</li>
+                    <form class="form-group" action="" method="">
+                      <li class="list-group-item ">Quantity: <input class="form-control"type="number" name="quantity" value=""></li>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <form class="" action="/buy" method="post">
+                      <button type="button" class="btn btn-warning">Buy</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <br>
           </div>
           <br>

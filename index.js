@@ -149,9 +149,20 @@ app.post('/api/shoes', function(req, res) {
     in_stock: in_stock
   });
 
-  newShoeEntry.save();
-  console.log(brand );
+  newShoeEntry.save(); 
 });
+
+app.post('/available-stock', function(req, res) {
+  shoeModel.find({}, function(error, results){
+    if (error) {
+      console.log(error);
+    }else {
+      res.render('admin',{
+        shoeInfo: results
+      });
+    }
+  });
+})
 app.post('/delete', function(req, res) {
 
   const id = req.body.id;
