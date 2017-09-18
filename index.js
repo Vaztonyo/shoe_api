@@ -65,16 +65,6 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 app.get('/api/shoes', function(req, res) {
-  const newShoeEntry = new shoeModel({
-    // id: Number,
-    color: "Green",
-    brand: "Nike",
-    cash: 1200,
-    size: 6,
-    in_stock: 500
-  });
-
-  newShoeEntry.save();
   shoeModel.find({}, function(error, results) {
     if (error) {
       console.log(error);
@@ -106,23 +96,29 @@ app.post('/api/shoes/sold/:id', function(req, res) {
   const soldShoes = req.params.id;
   res.json(soldShoes);
 });
-<<<<<<< HEAD
 app.get('/admin', function(req, res) {
   // console.log(data);
   res.render('admin');
 });
-=======
 
->>>>>>> ef8fd5401baa65ba22b79f990b2914dd8e32ca5b
 app.post('/api/shoes', function(req, res) {
-  console.log(req.body);
-  res.send({
-    Color: req.body.color,
-    Brand: req.body.brandname,
-    Size: req.body.size,
-    Cash: req.body.cash,
-    In_Stock: req.body.in_stock
+  const brand = req.body.brand;
+  const color = req.body.color;
+  const cash = req.body.cash;
+  const size = req.body.size;
+  const in_stock = req.body.in_stock;
+
+  const newShoeEntry = new shoeModel({
+    // id: Number,
+    brand: brand,
+    color: color,
+    cash: cash,
+    size: size,
+    in_stock: in_stock
   });
+
+  newShoeEntry.save();
+  console.log(brand );
 });
 
 app.listen(port, function() {
