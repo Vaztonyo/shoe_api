@@ -120,6 +120,8 @@ app.get('/admin', function(req, res) {
 });
 
 app.post('/api/shoes', function(req, res) {
+
+  const id = req.body.id;
   const brand = req.body.brand;
   const color = req.body.color;
   const cash = req.body.cash;
@@ -127,7 +129,7 @@ app.post('/api/shoes', function(req, res) {
   const in_stock = req.body.in_stock;
 
   const newShoeEntry = new shoeModel({
-    // id: Number,
+    id: id,
     brand: brand,
     color: color,
     cash: cash,

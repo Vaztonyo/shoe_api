@@ -2,5 +2,8 @@ body{
   font-family: 'Open Sans Condensed', sans-serif;
 }
 .slide_img{
- height: 700px
+ height: 538px;
+}
+#carouselExampleControls{
+  height: 200px
 }
