@@ -11,17 +11,21 @@
     <br>
     <h1 class="text-center"> Available Shoes</h1>
     <br>
+
+
+
     <div class="row">
+      <script id="allShoesTemplate" type="text/handlebars-x">
       {{#each shoeInfo}}
         <div class="col-lg-3">
           <div class="card border-warning mb-3">
             <div class="card-body">
-              <h4 class="card-title text-center">{{brand}}</h4>
+              <h4 class="card-title text-center"><span class="badge badge-warning text-light">{{brand}}</span></h4>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cash: R {{cash}}</li>
-                <li class="list-group-item">Color: {{color}}</li>
-                <li class="list-group-item">Size: {{size}}</li>
-                <li class="list-group-item">In Stock: {{in_stock}}</li>
+                <li class="list-group-item">R {{cash}}</li>
+                <li class="list-group-item">{{color}}</li>
+                <li class="list-group-item">{{size}}</li>
+                <li class="list-group-item">{{in_stock}}</li>
               </ul>
             </div>
             <!-- BUTTON TRIGGER MODAL -->
@@ -39,11 +43,10 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <li class="list-group-item">Cash: R {{cash}}</li>
                     <li class="list-group-item">Color: {{color}}</li>
                     <li class="list-group-item">Size: {{size}}</li>
                     <form class="form-group" action="" method="">
-                      <li class="list-group-item ">Quantity: <input class="form-control"type="number" name="quantity" value=""></li>
+                      <li class="list-group-item ">Quantity: <input class=""type="number" name="quantity" value=""></li>
                     </form>
                   </div>
                   <div class="modal-footer">
@@ -61,6 +64,11 @@
           <br>
         </div>
       {{/each}}
+    </div>
+    </script>
+
+    <div class="displayAllShoes">
+
     </div>
   </div>
 </body>

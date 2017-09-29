@@ -9,7 +9,7 @@
 <body>
   <div class="container-fluid">
     <br>
-    <!-- ADMIN FORM -->
+    <!-- END ADMIN ADDS STOCK -->
     <div class="row">
       <div class="col-lg-4">
         <form class="form-group" action="api/shoes" method="post">
@@ -23,6 +23,8 @@
           <input class="btn btn-success btn-block" type="submit" value="ADD">
         </form>
       </div>
+      <!-- END ADMIN ADDS STOCK -->
+      <!-- ADMIN CHECKS AVAILABLE STOCK -->
       <div class="col-lg-4">
         <h2 class="text-center"><u>Available Stock</u></h2>
         <br>
@@ -53,6 +55,9 @@
           </div>
         {{/if}}
       </div>
+      <!-- ADMIN CHECKS AVAILABLE STOCK -->
+
+      <!-- ADMIN DELETE SHOES -->
       <div class="col-lg-4">
         <form class="form-group" action="/delete" method="post">
           <h2 class="text-center"><u>Delete Stock</u></h2><br>
@@ -63,6 +68,7 @@
           <input class="btn btn-success btn-block" type="submit" value="DELELTE">
         </form>
       </div>
+      <!-- END ADMIN DELETE SHOES -->
     </div>
     <!-- END ADMIN FORM -->
   </div>
