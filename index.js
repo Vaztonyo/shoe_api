@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // file exports
-const model = require('./model');
-const routes = require('./routes');
+const model = require('./js/model');
+const routes = require('./js/routes');
 
 // new instances
 const app = express();

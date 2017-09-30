@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = require('mongodb').ObjectId;
 
 const model = require('./model');
-const index = require('./index');
+// const index = require('./index');
 
 var db = model().shoeModel;
 
