@@ -53,6 +53,9 @@ app.get('/api/shoes', shoeRoutes.findAllShoes);
 // filter shoes in the database based on brandname
 app.get('/api/shoes/brand/:brandname', shoeRoutes.findBrand);
 
+// searchs the database for any existing brands
+app.get('/api/shoes/brand/', shoeRoutes.findAllBrands);
+
 // filter shoes in the database based on brandname and size
 app.get('/api/shoes/brand/:brandname/size/:size', shoeRoutes.findBrandAnSize);
 

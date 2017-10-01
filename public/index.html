@@ -1,54 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Shoe API</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <script src="handlebars-v4.0.5.js" charset="utf-8"></script>
-    <script src="jquery-3.2.1.min.js" charset="utf-8"></script>
-    <!-- HA -->
-    <script id="shoeTemplate" type="text/x-handlebars-template">
-      <table class="">
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Size</th>
-            <th>Stock</th>
-          </tr>
-          {{#each shoes}}
-          <tr>
-            <td>{{brand}}</td>
-            <td>{{color}}</td>
-            <td>R{{cash}}</td>
-            <td>{{size}}</td>
-            <td>{{in_stock}}</td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Shoe API</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <script src="handlebars-v4.0.5.js" charset="utf-8"></script>
+  <script src="jquery-3.2.1.min.js" charset="utf-8"></script>
+  <!-- HANDLEBARS TEMPLATE FOR ALL AVAILABLE SHOES -->
+  <script id="shoeTemplate" type="text/x-handlebars-template">
+    <table class="">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Color</th>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Stock</th>
+        </tr>
+        {{#each shoes}}
+        <tr>
+          <td>{{brand}}</td>
+          <td>{{color}}</td>
+          <td>R{{cash}}</td>
+          <td>{{size}}</td>
+          <td>{{in_stock}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+  <!-- HANDLEBARS TEMPLATE AVAILABLE BRANDS -->
+  <script id="brandsTemplate" type="text/x-handlebars-template">
+    <table class="">
+      <tbody>
+        <tr>
+          <th>Name</th>
+        </tr>
+        {{#each shoes}}
+        <tr>
+          <td>{{brand}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+
+</head>
+
+<body>
 
 
-<h1 class="text-center"> Shoe API</h1>
-<div class="text-center">
-  <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-secondary">Available Shoes</button>
-  <button type="button" class="btn btn-secondary">Brand</button>
-  <button type="button" class="btn btn-secondary">Size</button>
-  <button type="button" class="btn btn-secondary">Color</button>
-</div>
-</div>
-    <button class="btn btn-light" type="button" name="button">Admin</button>
-    <div id="shoeTable" class="table table-hover">
-
+  <h1 class="text-center"> Shoe API</h1>
+  <a href="admin.html"><button id="adminBtn" class="btn btn-secondary float-right" type="button" name="button">Admin</button></a>
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button>
+      <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
+      <button type="button" id="sizeBtn" class="btn btn-secondary">Size</button>
+      <button type="button" id="colorBtn" class="btn btn-secondary">Color</button>
     </div>
-  </body>
-  <script src="ajax.js" charset="utf-8"></script>
+    <br>
+    <div class="collapse" id="searchBrand">
+        <div class="card card-body">
+          <div class="text-center">
+          <div class="input-group">
+            <input type="text" id="searchBrandInput" class="form-control" placeholder="search brand" aria-describedby="basic-addon2" value="">
+            <button type="button" id="brandSearchBtn" class="input-group-addon" id="basic-addon2">search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div id="shoeTable" class="table table-hover"> </div>
+  <div id="brandsTable" class="table table-hover"> </div>
+</body>
+<script src="brands_ajax.js" charset="utf-8"></script>
+<script src="ajax.js" charset="utf-8"></script>
+<script src="bootstrap.min.js" charset="utf-8"></script>
+
+
 </html>

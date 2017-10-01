@@ -13,7 +13,6 @@ module.exports = function(){
       if (error) {
         console.log(error);
       } else {
-        console.log(results);
         res.json(results);
       };
     });
@@ -79,7 +78,6 @@ module.exports = function(){
     // res.json(ObjectId(soldShoes).str);
   };
 
-
   var addShoe = function(req, res) {
 
     const id = req.body.id;
@@ -107,11 +105,23 @@ module.exports = function(){
     });
   }
 
+  // finds all shoe brand in the database
+  var findAllBrands =  function() {
+    db.find({brand: ""}, function(error, results) {
+      if (error) {
+        console.log(error);
+      }else {
+        console.log(results);
+      }
+    })
+  }
+
   return {
     findAllShoes,
     findBrand,
     findBrandAnSize,
     sellShoes,
-    addShoe
+    addShoe,
+    findAllBrands
   }
 }
