@@ -2,8 +2,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const flash = require('express-flash');
-const session = require('express-session');
 const ObjectId = require('mongodb').ObjectId;
 
 // file exports
@@ -13,18 +11,7 @@ const app = express();
 ///  configuring dependencies
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-  
-app.use(flash());
-
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 60000 * 30
-  }
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // new instances
 var db = model().shoeModel;
@@ -105,12 +92,20 @@ module.exports = function(){
 
   var addShoe = function(req, res) {
 
-    const id = req.body.id;
-    const brand = req.body.brand;
-    const color = req.body.color;
-    const cash = req.body.cash;
-    const size = req.body.size;
-    const in_stock = req.body.in_stock;
+    const shoeId = document.querySelector('#shoeId').value;
+    const brandName = document.querySelector('#brandName').value;
+    const shoeColor = document.querySelector('#shoeColor').value;
+    const cash = document.querySelector('#cash').value;
+    const size = document.querySelector('#size').value;
+    const in_stock = document.querySelector('#in_stock').value;
+    const addStockBtn = document.querySelector('#addStockBtn').value;
+
+    // const id = req.body.id;
+    // const brand = req.body.brand;
+    // const color = req.body.color;
+    // const cash = req.body.cash;
+    // const size = req.body.size;
+    // const in_stock = req.body.in_stock;
 
     const newShoeEntry = new db({
       id: id,
@@ -123,6 +118,7 @@ module.exports = function(){
 
     newShoeEntry.save(function(error, results) {
       if (error) {
+        alert('Ya')
         console.log(error);
       }else {
         console.log(results.brand + " added in stock");

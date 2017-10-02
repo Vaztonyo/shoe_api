@@ -1,6 +1,6 @@
 "use strict"
 // dependencies
-const express = require('express'); 
+const express = require('express');
 const flash = require('express-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');

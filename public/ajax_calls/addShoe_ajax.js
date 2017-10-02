@@ -1,3 +1,5 @@
+const model = require('../js/model');
+var db = model().shoeModel;
 $(function() {
 
   const shoeId = document.querySelector('#shoeId');
@@ -15,16 +17,29 @@ $(function() {
     var cashVal = cash.value
     var sizeVal = size.value
     var in_stockVal = in_stock.value
-    var addStockBtnVal = addStockBtn.value
 
     var url = "http://localhost:8083/api/shoes";
     var availStockTemplate = document.querySelector('#availStockTemplate').innerHTML;
     var compileAvailStock = Handlebars.compile(availStockTemplate);
     var availStock = document.querySelector('#availStock');
 
-    // var alertMsgTemplate = document.querySelector('#alertMsgTemplate').innerHTML;
-    // var alertMsgTemplate = Handlebars.compile(alertMsgTemplate);
-    // var alertMsg = document.querySelector('#alertMsg');
+    const newShoeEntry = new db({
+      id: shoeIdVal,
+      brand: brandNameVal,
+      color: shoeColorVal,
+      cash: cashVal,
+      size: sizeVal,
+      in_stock: in_stockVal
+    });
+
+    newShoeEntry.save(function(error, results) {
+      if (error) {
+        alert('Ya')
+        console.log(error);
+      } else {
+        console.log(results.brand + " added in stock");
+      }
+    });
 
 
     $.ajax({

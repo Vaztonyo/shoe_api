@@ -7,27 +7,30 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="jquery-3.2.1.min.js" charset="utf-8"></script>
-  <script id="availStockTemplate" type="text/handlebars-x">
-  {{#if shoeInfo}}
-    <div class="scroll">
-      {{#each shoeInfo}}
-        <div class="card border-warning mb-3">
-          <div class="card-body">
-            <h4 class="card-title text-center">{{brand}}</h4>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Id: {{id}}</li>
-              <li class="list-group-item">Cash: R {{cash}}</li>
-              <li class="list-group-item">Color: {{color}}</li>
-              <li class="list-group-item">Size: {{size}}</li>
-              <li class="list-group-item">In Stock: {{in_stock}}</li>
-            </ul>
-          </div>
-          <br>
-        </div>
-        <br>
-      {{/each}}
-    </div>
-  {{/if}}
+  <script src="handlebars-v4.0.5.js" charset="utf-8"></script>
+  <script src="../ajax_calls/ajax.js" charset="utf-8"></script>
+
+  <script id="shoeTemplate" type="text/x-handlebars-template">
+    <table class="">
+      <tbody>
+        <tr>
+          <th>Brand</th>
+          <th>Color</th>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Stock</th>
+        </tr>
+        {{#each shoes}}
+        <tr>
+          <td>{{brand}}</td>
+          <td>{{color}}</td>
+          <td>R{{cash}}</td>
+          <td>{{size}}</td>
+          <td>{{in_stock}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </script>
 </head>
 
@@ -36,51 +39,35 @@
     <br>
     <!-- END ADMIN ADDS STOCK -->
     <div class="row">
-      <div class="col-lg-4">
-        <form class="form-group" action="api/shoes" method="post">
-          <h2 class="text-center"><u>Add Stock</u></h2><br>
-          <input id="shoeId" class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
-          <input id="brandName" class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
-          <input id="shoeColor" class="form-control text-center" type="text" name="color" placeholder="color"><br>
-          <input id="cash" class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
-          <input id="size" class="form-control text-center" type="text" name="size" placeholder="size"><br>
-          <input id="in_stock" class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
-          <input id="addStockBtn" class="btn btn-secondary btn-block" type="submit" value="ADD">
-        </form>
+      <div class="col-lg-6">
+        <h2 class="text-center"><u>Add Stock</u></h2><br>
+        <input id="shoeId" class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
+        <input id="brandName" class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
+        <input id="shoeColor" class="form-control text-center" type="text" name="color" placeholder="color"><br>
+        <input id="cash" class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
+        <input id="size" class="form-control text-center" type="text" name="size" placeholder="size"><br>
+        <input id="in_stock" class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
+        <input id="addStockBtn" class="btn btn-secondary btn-block" type="submit" value="ADD">
       </div>
       <!-- END ADMIN ADDS STOCK -->
       <!-- ADMIN CHECKS AVAILABLE STOCK -->
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <h2 class="text-center"><u>Available Stock</u></h2>
         <br>
-        <form class="" action="/available-stock" method="post">
-          <div class="text-center">
-            <input class="btn btn-secondary btn-block" type="submit" name="" value="available-stock">
-          </div>
-        </form>
-        <br>
-        <div id="availStock">
-
+        <input id="avlShoesBtn" class="btn btn-secondary btn-block" type="submit" value="available-stock">
+        <!-- HANDLEBARS OUTPUT DIV FOR AVAILABLE STOCK -->
+        <div class="col-lg-12">
+          <div id="shoeTable" class="table table-hover"> </div>
         </div>
       </div>
-      <!-- ADMIN CHECKS AVAILABLE STOCK -->
-
-      <!-- ADMIN DELETE SHOES -->
-      <div class="col-lg-4">
-        <form class="form-group" action="/delete" method="post">
-          <h2 class="text-center"><u>Delete Stock</u></h2><br>
-          {{#if messeges.deleted}}
-            <p class="alert alert-danger">{{messeges.deleted}}</p>
-          {{/if}}
-          <input class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
-          <input class="btn btn-secondary btn-block" type="submit" value="DELELTE">
-        </form>
-      </div>
-      <!-- END ADMIN DELETE SHOES -->
+      <br>
     </div>
-    <!-- END ADMIN FORM -->
+    <!-- ADMIN CHECKS AVAILABLE STOCK -->
+  </div>
+  <!-- END ADMIN FORM -->
   </div>
 </body>
 <script src="../ajax_calls/addShoe_ajax.js" charset="utf-8"></script>
+<script src="../ajax_calls/ajax.js" charset="utf-8"></script>
 
 </html>

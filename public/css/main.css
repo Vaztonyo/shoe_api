@@ -1,5 +1,7 @@
 body{
   font-family: 'Quicksand', sans-serif;
+  background-image: url('../images/grey.jpg');
+  /*background-size: ;*/
 }
 .slide_img{
  height: 538px;
