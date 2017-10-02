@@ -1,11 +1,31 @@
+// dependencies
+const express = require('express');
 const mongoose = require('mongoose');
+const flash = require('express-flash');
+const session = require('express-session');
 const ObjectId = require('mongodb').ObjectId;
 
+// file exports
 const model = require('./model');
-// const index = require('./index');
+const app = express();
 
+// configuring dependencies
+
+app.use(flash());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60000 * 30
+  }
+}));
+
+// new instances
 var db = model().shoeModel;
 
+// factory function : hosts function to be exported
 module.exports = function(){
 
   var findAllShoes = function(req, res) {
@@ -28,6 +48,7 @@ module.exports = function(){
       brand: brandname
     }, function(error, results) {
       if (error) {
+        req.flash('error', 'Sorry the brand is not available');
         console.log(error);
       } else {
         res.json(results);

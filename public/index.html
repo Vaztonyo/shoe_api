@@ -15,7 +15,7 @@
     <table class="">
       <tbody>
         <tr>
-          <th>Name</th>
+          <th>Brand</th>
           <th>Color</th>
           <th>Price</th>
           <th>Size</th>
@@ -38,35 +38,51 @@
     <table class="">
       <tbody>
         <tr>
-          <th>Name</th>
+          <th>Brand</th>
+          <th>Color</th>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Stock</th>
         </tr>
         {{#each shoes}}
         <tr>
           <td>{{brand}}</td>
+          <td>{{color}}</td>
+          <td>R{{cash}}</td>
+          <td>{{size}}</td>
+          <td>{{in_stock}}</td>
         </tr>
         {{/each}}
       </tbody>
     </table>
   </script>
-
+  <!-- <script id="alertMsgTemplate" type="text/x-handlebars-template">
+    {{#if messages.error}}
+      <div class="alert alert-danger">
+        <p>{{messages.error}}</p>
+      </div>
+    {{/if}}
+  </script> -->
 </head>
 
 <body>
 
 
   <h1 class="text-center"> Shoe API</h1>
+  <!-- ADMIN BUTTON -->
   <a href="admin.html"><button id="adminBtn" class="btn btn-secondary float-right" type="button" name="button">Admin</button></a>
+  <!-- MAIN BUTTON GROUP -->
   <div class="text-center">
     <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button>
       <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
-      <button type="button" id="sizeBtn" class="btn btn-secondary">Size</button>
-      <button type="button" id="colorBtn" class="btn btn-secondary">Color</button>
+      <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
     </div>
     <br>
+    <!-- COLLAPSE FOR BRAND SEARCH -->
     <div class="collapse" id="searchBrand">
-        <div class="card card-body">
-          <div class="text-center">
+      <div class="card card-body">
+        <div class="text-center">
           <div class="input-group">
             <input type="text" id="searchBrandInput" class="form-control" placeholder="search brand" aria-describedby="basic-addon2" value="">
             <button type="button" id="brandSearchBtn" class="input-group-addon" id="basic-addon2">search</button>
@@ -74,12 +90,32 @@
         </div>
       </div>
     </div>
+    <!-- COLLAPSE FOR SIZE SEARCH -->
+    <div class="collapse" id="searchSize">
+      <div class="card card-body">
+        <div class="text-center">
+          <div class="input-group">
+            <input type="text" id="searchBrandInput1" class="form-control" placeholder="brand" aria-describedby="basic-addon2" value="">
+            <input type="text" id="searchSizeInput" class="form-control" placeholder="size" aria-describedby="basic-addon2" value="">
+            <button type="button" id="searchBtn" class="input-group-addon" id="basic-addon2">search</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <br>
+  <!-- ALERT MESSAGES -->
+  <!-- <div id="alertMsg" class="">
 
+    </div> -->
+  <!-- END ALERT MESSAGES -->
+
+  <!-- HANDLEBARS OUTPUT DIVS -->
   <div id="shoeTable" class="table table-hover"> </div>
   <div id="brandsTable" class="table table-hover"> </div>
 </body>
+<!-- AJAX CALLS -->
+<script src="size_ajax.js" charset="utf-8"></script>
 <script src="brands_ajax.js" charset="utf-8"></script>
 <script src="ajax.js" charset="utf-8"></script>
 <script src="bootstrap.min.js" charset="utf-8"></script>

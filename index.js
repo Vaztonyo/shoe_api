@@ -23,20 +23,8 @@ app.use(function(req, res, next) {
   next();
 })
 
-// configuring dependencies
-app.use(flash());
-
+// configuring dependencies 
 app.use(express.static('public'));
-
-
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 60000 * 30
-  }
-}));
 
 app.set('trust proxy', 1);
 
