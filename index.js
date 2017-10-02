@@ -1,7 +1,6 @@
 "use strict"
 // dependencies
-const express = require('express');
-const exphbs = require('express-handlebars');
+const express = require('express'); 
 const flash = require('express-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -16,6 +15,7 @@ const app = express();
 const shoeRoutes = routes();
 const port = process.env.PORT || 8083;
 
+// configuring dependencies
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -23,7 +23,6 @@ app.use(function(req, res, next) {
   next();
 })
 
-// configuring dependencies 
 app.use(express.static('public'));
 
 app.set('trust proxy', 1);
@@ -33,6 +32,10 @@ mongoose.Promise = global.Promise;
 /// server or app URL routes
 app.get('/', function(req, res) {
   res.render('index');
+});
+
+app.get('/admin', function(req, res) {
+  res.render('admin');
 });
 
 // find all the shoes in the database

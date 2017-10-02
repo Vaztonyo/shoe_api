@@ -1,5 +1,6 @@
 // dependencies
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const flash = require('express-flash');
 const session = require('express-session');
@@ -9,8 +10,11 @@ const ObjectId = require('mongodb').ObjectId;
 const model = require('./model');
 const app = express();
 
-// configuring dependencies
+///  configuring dependencies
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+  
 app.use(flash());
 
 app.use(session({

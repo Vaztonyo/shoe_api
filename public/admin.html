@@ -6,6 +6,7 @@
   <title></title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
+  <script src="jquery-3.2.1.min.js" charset="utf-8"></script>
   <script id="availStockTemplate" type="text/handlebars-x">
   {{#if shoeInfo}}
     <div class="scroll">
@@ -38,13 +39,13 @@
       <div class="col-lg-4">
         <form class="form-group" action="api/shoes" method="post">
           <h2 class="text-center"><u>Add Stock</u></h2><br>
-          <input class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
-          <input class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
-          <input class="form-control text-center" type="text" name="color" placeholder="color"><br>
-          <input class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
-          <input class="form-control text-center" type="text" name="size" placeholder="size"><br>
-          <input class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
-          <input class="btn btn-secondary btn-block" type="submit" value="ADD">
+          <input id="shoeId" class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
+          <input id="brandName" class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
+          <input id="shoeColor" class="form-control text-center" type="text" name="color" placeholder="color"><br>
+          <input id="cash" class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
+          <input id="size" class="form-control text-center" type="text" name="size" placeholder="size"><br>
+          <input id="in_stock" class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
+          <input id="addStockBtn" class="btn btn-secondary btn-block" type="submit" value="ADD">
         </form>
       </div>
       <!-- END ADMIN ADDS STOCK -->
@@ -80,5 +81,6 @@
     <!-- END ADMIN FORM -->
   </div>
 </body>
+<script src="../ajax_calls/addShoe_ajax.js" charset="utf-8"></script>
 
 </html>
