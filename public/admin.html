@@ -14,11 +14,11 @@
     <table class="">
       <tbody>
         <tr>
-          <th>Brand</th>
-          <th>Color</th>
-          <th>Price</th>
-          <th>Size</th>
-          <th>Stock</th>
+          <th class="col-lg-1">Brand</th>
+          <th class="col-lg-2">Color</th>
+          <th class="col-lg-2">Price</th>
+          <th class="col-lg-2">Size</th>
+          <th class="col-lg-2">Stock</th>
         </tr>
         {{#each shoes}}
         <tr>
@@ -41,13 +41,15 @@
     <div class="row">
       <div class="col-lg-6">
         <h2 class="text-center"><u>Add Stock</u></h2><br>
-        <input id="shoeId" class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
-        <input id="brandName" class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
-        <input id="shoeColor" class="form-control text-center" type="text" name="color" placeholder="color"><br>
-        <input id="cash" class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
-        <input id="size" class="form-control text-center" type="text" name="size" placeholder="size"><br>
-        <input id="in_stock" class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
-        <input id="addStockBtn" class="btn btn-secondary btn-block" type="submit" value="ADD">
+        <div class="bg-light">
+          <input id="shoeId" class="form-control text-center" type="text" name="id" placeholder="shoe id"><br>
+          <input id="brandName" class="form-control text-center" type="text" name="brand" placeholder="brand"><br>
+          <input id="shoeColor" class="form-control text-center" type="text" name="color" placeholder="color"><br>
+          <input id="cash" class="form-control text-center" type="text" name="cash" placeholder="cash"><br>
+          <input id="size" class="form-control text-center" type="text" name="size" placeholder="size"><br>
+          <input id="in_stock" class="form-control text-center" type="text" name="in_stock" placeholder="in_stock"><br>
+          <input id="addStockBtn" class="btn btn-secondary btn-block" type="submit" value="ADD">
+        </div>
       </div>
       <!-- END ADMIN ADDS STOCK -->
       <!-- ADMIN CHECKS AVAILABLE STOCK -->
@@ -57,7 +59,7 @@
         <input id="avlShoesBtn" class="btn btn-secondary btn-block" type="submit" value="available-stock">
         <!-- HANDLEBARS OUTPUT DIV FOR AVAILABLE STOCK -->
         <div class="col-lg-12">
-          <div id="shoeTable" class="table table-hover"> </div>
+          <div id="shoeTable" class="table table-hover bg-light"> </div>
         </div>
       </div>
       <br>

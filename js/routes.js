@@ -90,22 +90,14 @@ module.exports = function(){
     // res.json(ObjectId(soldShoes).str);
   };
 
-  var addShoe = function(req, res) {
+  var addShoe = function(req, res) { 
 
-    const shoeId = document.querySelector('#shoeId').value;
-    const brandName = document.querySelector('#brandName').value;
-    const shoeColor = document.querySelector('#shoeColor').value;
-    const cash = document.querySelector('#cash').value;
-    const size = document.querySelector('#size').value;
-    const in_stock = document.querySelector('#in_stock').value;
-    const addStockBtn = document.querySelector('#addStockBtn').value;
-
-    // const id = req.body.id;
-    // const brand = req.body.brand;
-    // const color = req.body.color;
-    // const cash = req.body.cash;
-    // const size = req.body.size;
-    // const in_stock = req.body.in_stock;
+    const id = req.body.id;
+    const brand = req.body.brand;
+    const color = req.body.color;
+    const cash = req.body.cash;
+    const size = req.body.size;
+    const in_stock = req.body.in_stock;
 
     const newShoeEntry = new db({
       id: id,

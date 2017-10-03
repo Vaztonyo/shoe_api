@@ -15,11 +15,11 @@
     <table class="">
       <tbody>
         <tr>
-          <th>Brand</th>
-          <th>Color</th>
-          <th>Price</th>
-          <th>Size</th>
-          <th>Stock</th>
+          <th class="col-lg-2">Brand</th>
+          <th class="col-lg-2">Color</th>
+          <th class="col-lg-2">Price</th>
+          <th class="col-lg-2">Size</th>
+          <th class="col-lg-2">Stock</th>
         </tr>
         {{#each shoes}}
         <tr>
@@ -38,11 +38,11 @@
     <table class="">
       <tbody>
         <tr>
-          <th>Brand</th>
-          <th>Color</th>
-          <th>Price</th>
-          <th>Size</th>
-          <th>Stock</th>
+          <th class="">Brand</th>
+          <th class="">Color</th>
+          <th class="">Price</th>
+          <th class="">Size</th>
+          <th class="">Stock</th>
         </tr>
         {{#each shoes}}
         <tr>
@@ -79,10 +79,10 @@
       <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
     </div>
     <br>
-    <hr>
+    <!-- <hr> -->
     <!-- COLLAPSE FOR BRAND SEARCH -->
-    <div class="collapse" id="searchBrand">
-      <div class="card card-body">
+    <div class="collapse  bg-light" id="searchBrand">
+      <div class="card card-body bg-light">
         <div class="text-center">
           <div class="input-group">
             <input type="text" id="searchBrandInput" class="form-control" placeholder="search brand" aria-describedby="basic-addon2" value="">
@@ -93,7 +93,7 @@
     </div>
     <!-- COLLAPSE FOR SIZE SEARCH -->
     <div class="collapse" id="searchSize">
-      <div class="card card-body">
+      <div class="card card-body bg-light">
         <div class="text-center">
           <div class="input-group">
             <input type="text" id="searchBrandInput1" class="form-control" placeholder="brand" aria-describedby="basic-addon2" value="">
@@ -113,7 +113,7 @@
 
   <!-- HANDLEBARS OUTPUT DIVS -->
   <div id="shoeTable" class="table table-hover bg-light col-lg-12"> </div>
-  <div id="brandsTable" class="table table-hover"> </div>
+  <div id="brandsTable" class="table table-hover bg-light"> </div>
 </body>
 <!-- AJAX CALLS -->
 <script src="../ajax_calls/size_ajax.js" charset="utf-8"></script>
