@@ -12,7 +12,7 @@ $(function() {
     console.log(sizeValue);
     console.log(brandValue);
 
-    var url = "http://localhost:8083/api/shoes/brand/" + brandValue + "/size/" + sizeValue;
+    var url = "api/shoes/brand/" + brandValue + "/size/" + sizeValue;
     var brandsTemplate = document.querySelector('#brandsTemplate').innerHTML;
     var compileBrandsTable = Handlebars.compile(brandsTemplate);
     var brandsTable = document.querySelector('#brandsTable');

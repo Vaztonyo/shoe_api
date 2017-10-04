@@ -4,7 +4,7 @@ $(function() {
 
   // function availableShoes(){
     avlShoesBtn.addEventListener('click', function () {
-    var url = "http://localhost:8083/api/shoes";
+    var url = "/api/shoes";
     var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;
     var compileTable = Handlebars.compile(shoeTemplate);
     var shoeTable = document.querySelector('#shoeTable');

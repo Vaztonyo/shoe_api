@@ -7,16 +7,14 @@ $(function() {
     const buyShoe = document.querySelector('#buyShoe');
     const buyShoeVal = buyShoe.value;
 
-    var url = "/api/shoes/sold/"+buyShoeVal;
-    var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;
-    var compileAvailStock = Handlebars.compile(shoeTemplate);
+    var url = "/api/shoes/sold/" + buyShoeVal;
+
     var successMsg = document.querySelector('#successMsg');
-    console.log(buyShoe);
-    console.log(url);
+    // console.log(buyShoeTemplate);
     $.ajax({
       type: "POST",
       url: url,
-      success: function(data) {
+      success: function(data) { 
         successMsg.innerHTML = "Thank You"
       },
       error: function(jqXHR) {

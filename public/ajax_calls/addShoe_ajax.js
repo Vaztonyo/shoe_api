@@ -11,7 +11,7 @@ $(function() {
     const size = document.querySelector('#size');
     const in_stock = document.querySelector('#in_stock');
 
-    var url = "http://localhost:8083/api/shoes";
+    var url = "/api/shoes";
     var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;
     var compileAvailStock = Handlebars.compile(shoeTemplate);
     var availStock = document.querySelector('#availStock');

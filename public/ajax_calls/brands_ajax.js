@@ -6,7 +6,7 @@ $(function() {
   brandSearchBtn.addEventListener('click', function() {
     var brandValue = searchBrandInput.value
 
-    var url = "http://localhost:8083/api/shoes/brand/" + brandValue;
+    var url = "api/shoes/brand/" + brandValue;
     var brandsTemplate = document.querySelector('#brandsTemplate').innerHTML;
     var compileBrandsTable = Handlebars.compile(brandsTemplate);
     var brandsTable = document.querySelector('#brandsTable');
