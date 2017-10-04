@@ -1,6 +1,7 @@
 $(function() {
 
 
+  const addStockBtn = document.querySelector('#addStockBtn');
 
   addStockBtn.addEventListener('click', function() {
     const shoeId = document.querySelector('#shoeId');
@@ -9,7 +10,6 @@ $(function() {
     const cash = document.querySelector('#cash');
     const size = document.querySelector('#size');
     const in_stock = document.querySelector('#in_stock');
-    const addStockBtn = document.querySelector('#addStockBtn');
 
     var url = "http://localhost:8083/api/shoes";
     var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;

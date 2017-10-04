@@ -68,10 +68,12 @@ module.exports = function(){
   }
 
   var sellShoes = function(req, res) {
-    const soldShoes = req.params.id;
+    const shoeBought = req.params.id;
+    // const shoeBought = req.params.id;
 
     db.findOneAndUpdate({
-        _id: ObjectId(soldShoes)
+        brand: shoeBought
+        // _id: ObjectId(shoeBought)
       }, {
         $inc: {
           in_stock: -1
@@ -86,11 +88,11 @@ module.exports = function(){
           console.log(results);
         }
       })
-    res.json(soldShoes);
+    res.json(shoeBought);
     // res.json(ObjectId(soldShoes).str);
   };
 
-  var addShoe = function(req, res) { 
+  var addShoe = function(req, res) {
 
     const id = req.body.id;
     const brand = req.body.brand;
