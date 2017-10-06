@@ -23,7 +23,7 @@
  * Server: [NodeJS](https://nodejs.org)
  * Database: [MongoDB](https://www.mongodb.com)
  * Version Control: [Github](https://github.com)
- * Live Deployment: [Heroku](htttps://heroku.com)
+ * Live Deployment: [Heroku](https://heroku.com)
  
  ## Lets start
  
