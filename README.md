@@ -24,6 +24,9 @@
  * Database: [MongoDB](https://www.mongodb.com)
  * Version Control: [Github](https://github.com)
  * Live Deployment: [Heroku](https://heroku.com)
+ * Testing: [Postman](https://www.getpostman.com/)
+ 
+  **NB** Postman is not for code testing but to make API calls and see how the API works.
  
  ## Lets start
  
