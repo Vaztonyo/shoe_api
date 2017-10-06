@@ -12,7 +12,7 @@ $(function() {
     const size = document.querySelector('#size');
     const in_stock = document.querySelector('#in_stock');
 
-    console.log("ShoeID", shoeId);
+    // console.log("ShoeID", shoeId);
 
     var url = "/api/shoes";
     var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;
