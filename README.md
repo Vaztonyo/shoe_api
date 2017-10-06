@@ -35,9 +35,7 @@
  * This app runs on [npm](https://www.npmjs.com/) modules and you will need these:
   - body-parser 
   - express 
-  - express-flash
   - express-handlebars
-  - express-session 
   - mongoose 
   
   ## Installations
