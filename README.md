@@ -79,7 +79,7 @@
   App running on port: 8083
   DB connection successful
   ```
- * You can now open your browser and go to:
+  You can now open your browser and go to:
   - homepage: `localhost:8083/`
   - see available stock: `localhost:8083/api/shoes`
   - see certain brands: `localhost:8083/api/shoes/brand/<yourbrand>`
