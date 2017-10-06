@@ -10,7 +10,7 @@
   - Size
   - In Stock (available countity)
   
-  
+ * The API currently has a front-end running via `index.html` and `admin.html`
   
  ## Users will be able to
  
@@ -79,5 +79,10 @@
   App running on port: 8083
   DB connection successful
   ```
- * You can now open your browser and go to `localhost:8083/
-`
+ * You can now open your browser and go to:
+  - homepage: `localhost:8083/`
+  - see available stock: `localhost:8083/api/shoes`
+  - see certain brands: `localhost:8083/api/shoes/brand/<yourbrand>`
+  - see certain brand and sizes: `localhost:8083/api/shoes/brand/<yourbrand>/size/<yoursize>`
+  - sell a shoe `localhost:8083/api/shoes/sold/<yourbrand>`
+  
