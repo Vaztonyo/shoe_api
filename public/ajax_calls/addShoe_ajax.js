@@ -3,13 +3,16 @@ $(function() {
 
   const addStockBtn = document.querySelector('#addStockBtn');
 
-  addStockBtn.addEventListener('click', function() {
-    const shoeId = document.querySelector('#shoeId');
+  addStockBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    // const shoeId = document.querySelector('#shoeId');
     const brandName = document.querySelector('#brandName');
     const shoeColor = document.querySelector('#shoeColor');
     const cash = document.querySelector('#cash');
     const size = document.querySelector('#size');
     const in_stock = document.querySelector('#in_stock');
+
+    console.log("ShoeID", shoeId);
 
     var url = "/api/shoes";
     var shoeTemplate = document.querySelector('#shoeTemplate').innerHTML;
@@ -20,7 +23,7 @@ $(function() {
       type: "POST",
       url: url,
       data : {
-        id: shoeId.value,
+        // id: shoeId.value,
         brand: brandName.value,
         color: shoeColor.value,
         cash: cash.value,
@@ -28,6 +31,7 @@ $(function() {
         in_stock: in_stock.value
       },
       success: function(data) {
+        console.log(data.data);
         availStock.innerHTML = compileAvailStock({
           shoes: data
         })

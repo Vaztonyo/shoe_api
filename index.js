@@ -12,10 +12,14 @@ const routes = require('./js/routes');
 
 // new instances
 const app = express();
+
 const shoeRoutes = routes();
+
 const port = process.env.PORT || 8083;
 
 // configuring dependencies
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

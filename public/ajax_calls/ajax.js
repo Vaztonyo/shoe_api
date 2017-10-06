@@ -13,6 +13,7 @@ $(function() {
       type: "get",
       url: url,
       success : function(data) {
+        console.log("Data", data);
         shoeTable.innerHTML = compileTable({
           shoes: data
         })

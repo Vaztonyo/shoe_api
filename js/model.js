@@ -15,7 +15,7 @@ module.exports = function(){
   })
 
   const shoeModel = mongoose.model('shoeModel', {
-    id: Number,
+    // id: Number,
     color: String,
     brand: String,
     cash: Number,

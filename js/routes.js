@@ -93,7 +93,7 @@ module.exports = function(){
   };
 
   var addShoe = function(req, res) {
-
+    console.log(req.body);
     const id = req.body.id;
     const brand = req.body.brand;
     const color = req.body.color;
@@ -102,7 +102,7 @@ module.exports = function(){
     const in_stock = req.body.in_stock;
 
     const newShoeEntry = new db({
-      id: id,
+      // id: id,
       brand: brand,
       color: color,
       cash: cash,
@@ -112,7 +112,7 @@ module.exports = function(){
 
     newShoeEntry.save(function(error, results) {
       if (error) {
-        alert('Ya')
+        // alert('Ya')
         console.log(error);
       }else {
         console.log(results.brand + " added in stock");
