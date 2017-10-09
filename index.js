@@ -45,9 +45,6 @@ app.get('/api/shoes', shoeRoutes.findAllShoes);
 // filter shoes in the database based on brandname
 app.get('/api/shoes/brand/:brandname', shoeRoutes.findBrand);
 
-// searchs the database for any existing brands
-app.get('/api/shoes/brand/', shoeRoutes.findAllBrands);
-
 // filter shoes in the database based on brandname and size
 app.get('/api/shoes/brand/:brandname/size/:size', shoeRoutes.findBrandAnSize);
 
@@ -55,10 +52,7 @@ app.get('/api/shoes/brand/:brandname/size/:size', shoeRoutes.findBrandAnSize);
 app.post('/api/shoes/sold/:id', shoeRoutes.sellShoes);
 
 // adds shoes into the database
-app.post('/api/shoes', shoeRoutes.addShoe);
-
-// delete shoes from the database
-app.post('/api/shoes/delete', shoeRoutes.deleteBrand);
+app.post('/api/shoes', shoeRoutes.addShoe); 
 
 // listen for a localhost port and logging it on the console
 app.listen(port, function() {
