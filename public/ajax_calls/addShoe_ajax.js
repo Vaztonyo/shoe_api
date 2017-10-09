@@ -31,6 +31,7 @@ $(function() {
         in_stock: in_stock.value
       },
       success: function(data) {
+        alert(brandName.value + ' has been added.')
         console.log(data.data);
         availStock.innerHTML = compileAvailStock({
           shoes: data

@@ -69,14 +69,14 @@ module.exports = function(){
 
   var sellShoes = function(req, res) {
     const shoeBought = req.params.id;
-    // const shoeBought = req.params.id;
+    const shoeQty = req.params.id; 
 
     db.findOneAndUpdate({
         brand: shoeBought
         // _id: ObjectId(shoeBought)
       }, {
         $inc: {
-          in_stock: -1
+          in_stock: - shoeQty
         }
       }, {
         upsert: false
@@ -130,6 +130,19 @@ module.exports = function(){
       }
     })
   }
+  // delete a certain shoe form the database/stock
+  var deleteBrand =  function() {
+
+    const deleteShoe = req.params.id;
+
+    db.remove({_id: ObjectId(deleteShoe)}, function(error, results) {
+      if (error) {
+        console.log(error);
+      }else {
+        console.log(results);
+      }
+    })
+  }
 
   return {
     findAllShoes,
@@ -137,6 +150,7 @@ module.exports = function(){
     findBrandAnSize,
     sellShoes,
     addShoe,
-    findAllBrands
+    findAllBrands,
+    deleteBrand
   }
 }

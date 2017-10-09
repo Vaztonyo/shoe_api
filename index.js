@@ -38,9 +38,6 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/admin', function(req, res) {
-  res.render('admin');
-});
 
 // find all the shoes in the database
 app.get('/api/shoes', shoeRoutes.findAllShoes);
@@ -59,6 +56,9 @@ app.post('/api/shoes/sold/:id', shoeRoutes.sellShoes);
 
 // adds shoes into the database
 app.post('/api/shoes', shoeRoutes.addShoe);
+
+// delete shoes from the database
+app.post('/api/shoes/delete', shoeRoutes.deleteBrand);
 
 // listen for a localhost port and logging it on the console
 app.listen(port, function() {

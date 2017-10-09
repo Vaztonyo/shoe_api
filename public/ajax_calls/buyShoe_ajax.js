@@ -5,7 +5,12 @@ $(function() {
 
   checkoutBtn.addEventListener('click', function() {
     const buyShoe = document.querySelector('#buyShoe');
+    const buyQty = document.querySelector('#buyQty');
+
     const buyShoeVal = buyShoe.value;
+    const buyQtyVal = buyQty.value;
+
+    console.log(buyQtyVal);
 
     var url = "/api/shoes/sold/" + buyShoeVal;
 
@@ -14,7 +19,7 @@ $(function() {
     $.ajax({
       type: "POST",
       url: url,
-      success: function(data) { 
+      success: function(data) {
         successMsg.innerHTML = "Thank You"
       },
       error: function(jqXHR) {
