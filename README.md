@@ -43,20 +43,20 @@
   
   ## Installations
   
-   * node modules
+   * Node Modules
    - `npm install`
    
-   * Package JSON
+   * Package.json
    - `np init -y`
    
-   * npm modules
+   * npm Modules
    - `npm install --save body-parser`
    - `npm install --save express`
    - `npm install --save express-handlebars`
    - `npm install --save mongoose`
    
-   * nodemon 
-   -  nodemon is an npm module to automatically restart the server after any changes
+   * Nodemon 
+   -  Nodemon is an npm module to automatically restart the server after any changes
    - `sudo npm install nodemon`
    
    ## Run the App
