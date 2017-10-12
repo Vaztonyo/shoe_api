@@ -17,14 +17,15 @@
 
   <!-- HANDLEBARS TEMPLATE FOR ALL AVAILABLE SHOES -->
   <script id="shoeTemplate" type="text/x-handlebars-template">
-    <table class="">
+    <h2 class="text-center text-secondary">Available Shoes</h2>
+    <table class="bg-light">
       <tbody>
         <tr>
-          <th class="col-lg-2">Brand</th>
-          <th class="col-lg-2">Color</th>
-          <th class="col-lg-2">Price</th>
-          <th class="col-lg-2">Size</th>
-          <th class="col-lg-2">Stock</th>
+          <th class="">Brand</th>
+          <th class="">Color</th>
+          <th class="">Price</th>
+          <th class="">Size</th>
+          <th class="">Stock</th>
         </tr>
         {{#each shoes}}
         <tr>
@@ -33,7 +34,7 @@
           <td>R{{cash}}</td>
           <td>{{size}}</td>
           <td>{{in_stock}}</td>
-          <td><button id="buyBtn" class="btn btn-success" type="button"data-toggle="modal" data-target="#exampleModal">BUY</button></td>
+          <td><button id="buyBtn" class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal">BUY</button></td>
         </tr>
         {{/each}}
       </tbody>
@@ -41,7 +42,7 @@
   </script>
   <!-- HANDLEBARS TEMPLATE AVAILABLE BRANDS -->
   <script id="brandsTemplate" type="text/x-handlebars-template">
-    <table class="">
+    <table class="col-lg-2">
       <tbody>
         <tr>
           <th class="">Brand</th>
@@ -65,88 +66,90 @@
 
   <script id="buyShoeTemplate" type="text/x-handlebars-template">
     {{#each shoes}}
-    <input id="buyShoe" class="form-control"type="text" name="" value="{{brand}}">
+    <input id="buyShoe" class="form-control" type="text" name="" value="{{brand}}">
     <p>{{brand}}</p>
     {{/each}}
   </script>
 </head>
 
 <body>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
-          <!-- ALERT MESSAGE IF A SHOE IS BOUGHT -->
-          <p id="successMsg" class=""></p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-        Brand
-        <div id="brandBeingBought">
-          <input id="buyShoe" class="form-control"type="text" name="" value="">
-          <!-- Quantity
-          <input id="buyQty" class="form-control col-lg-3"type="number" name="" value=""> -->
+  <div class="container">
+    <!-- MODAL -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+            <!-- ALERT MESSAGE IF A SHOE IS BOUGHT -->
+            <p id="successMsg" class=""></p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Brand
+            <div id="brandBeingBought">
+              <input id="buyShoe" class="form-control" type="text" name="" value="">
+              <!-- Quantity
+            <input id="buyQty" class="form-control col-lg-3"type="number" name="" value=""> -->
 
-        </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="checkoutBtn" type="button" class="btn btn-warning">Checkout</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="checkoutBtn" type="button" class="btn btn-warning">Checkout</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <h1 class="text-center"> Shoe API</h1>
-  <!-- ADMIN BUTTON -->
-  <a href="admin.html"><button id="adminBtn" class="btn btn-secondary float-right" type="button" name="button">Admin</button></a>
-  <!-- MAIN BUTTON GROUP -->
-  <div class="text-center">
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button>
-      <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
-      <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
-    </div>
+    <h1 class="text-center"> Shoe API</h1>
     <br>
-    <!-- <hr> -->
-    <!-- COLLAPSE FOR BRAND SEARCH -->
-    <div class="collapse  bg-light" id="searchBrand">
-      <div class="card card-body bg-light">
-        <div class="text-center">
-          <div class="input-group">
-            <input type="text" id="searchBrandInput" class="form-control" placeholder="search brand" aria-describedby="basic-addon2" value="">
-            <button type="button" id="brandSearchBtn" class="input-group-addon" id="basic-addon2">search</button>
+    <!-- MAIN BUTTON GROUP -->
+    <div class="row">
+      <!-- ADMIN BUTTON -->
+      <a href="admin.html"><button id="adminBtn" class="btn btn-secondary" type="button" name="button">Admin</button></a>
+      <div class="text-center col-lg-6">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <!-- <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button> -->
+          <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
+          <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
+        </div>
+        <br>
+        <!-- <hr> -->
+        <!-- COLLAPSE FOR BRAND SEARCH -->
+        <div class="collapse  bg-light" id="searchBrand">
+          <div class="card card-body bg-light">
+            <div class="text-center">
+              <div class="input-group">
+                <input type="text" id="searchBrandInput" class="form-control" placeholder="search brand" aria-describedby="basic-addon2" value="">
+                <button type="button" id="brandSearchBtn" class="input-group-addon" id="basic-addon2">search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- COLLAPSE FOR SIZE SEARCH -->
+        <div class="collapse" id="searchSize">
+          <div class="card card-body bg-light">
+            <div class="text-center">
+              <div class="input-group">
+                <input type="text" id="searchBrandInput1" class="form-control" placeholder="brand" aria-describedby="basic-addon2" value="">
+                <input type="text" id="searchSizeInput" class="form-control" placeholder="size" aria-describedby="basic-addon2" value="">
+                <button type="button" id="searchBtn" class="input-group-addon" id="basic-addon2">search</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- COLLAPSE FOR SIZE SEARCH -->
-    <div class="collapse" id="searchSize">
-      <div class="card card-body bg-light">
-        <div class="text-center">
-          <div class="input-group">
-            <input type="text" id="searchBrandInput1" class="form-control" placeholder="brand" aria-describedby="basic-addon2" value="">
-            <input type="text" id="searchSizeInput" class="form-control" placeholder="size" aria-describedby="basic-addon2" value="">
-            <button type="button" id="searchBtn" class="input-group-addon" id="basic-addon2">search</button>
-          </div>
-        </div>
+      <br>
+
+      <!-- HANDLEBARS OUTPUT DIVS -->
+      <div class="bg-light col-lg-5 scroll">
+        <div id="shoeTable" class="table table-hover"> </div>
+        <div id="brandsTable" class="table table-hover float-right"> </div>
       </div>
     </div>
   </div>
-  <br>
-  <!-- ALERT MESSAGES -->
-  <!-- <div id="alertMsg" class="">
-
-    </div> -->
-  <!-- END ALERT MESSAGES -->
-
-  <!-- HANDLEBARS OUTPUT DIVS -->
-  <div id="shoeTable" class="table table-hover bg-light col-lg-12"> </div>
-  <div id="brandsTable" class="table table-hover bg-light"> </div>
 </body>
 <!-- AJAX CALLS -->
 <script src="../ajax_calls/size_ajax.js" charset="utf-8"></script>

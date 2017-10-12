@@ -3,7 +3,7 @@ $(function() {
   const avlShoesBtn = document.querySelector('#avlShoesBtn');
 
   // "click" event listener for "avlShoesBtn" button
-  avlShoesBtn.addEventListener('click', function() {
+  // avlShoesBtn.addEventListener('click', function() {
     // API route for seeing all the shoes in the database
     var url = "/api/shoes";
     // handlebars template for the shoe template
@@ -30,7 +30,7 @@ $(function() {
       error: function(jqXHR) {
         alert(jqXHR.status + " error");
       }
-    }); //ajax call
+    // }); //ajax call
   }) //available shoe eventListener
   // }
 

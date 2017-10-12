@@ -11,7 +11,6 @@ $(function() {
 
     // values of the chosen shoe to be bought
     const buyShoeVal = buyShoe.value;
-    const buyQtyVal = buyQty.value;
 
     // API route for buying shoes. This is concatinated with the brand being searched
     var url = "/api/shoes/sold/" + buyShoeVal;

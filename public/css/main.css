@@ -10,7 +10,7 @@ body{
   height: 200px
 }
 .scroll{
-    height: 380px;
+    height: 575px;
     overflow: scroll;
     overflow-x: hidden;
     /*background-color: lightgrey;*/

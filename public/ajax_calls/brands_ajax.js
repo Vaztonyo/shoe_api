@@ -1,4 +1,11 @@
 $(function() {
+
+  // JQuery function to hide the search collapse div for filtering with size, when the brand search button is cliked
+  $('#brandBtn').click(function() {
+    $('#searchSize').hide();
+    $('#searchBrand').show();
+  });
+
   // introducing the "brandSearchBtn" button for filtering stock with brand names
   const brandSearchBtn = document.querySelector('#brandSearchBtn');
   // introducing the input field for searching brand
@@ -6,6 +13,9 @@ $(function() {
 
   // "click" event listener for "brandSearchBtn" button
   brandSearchBtn.addEventListener('click', function() {
+    // hiding the table with available shoes when one searches for a particular brand
+    $('#shoeTable').hide();
+    
     // the value of the brand search input field
     var brandValue = searchBrandInput.value
 
