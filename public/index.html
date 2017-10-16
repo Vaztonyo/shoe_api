@@ -19,7 +19,7 @@
   <script id="shoeTemplate" type="text/x-handlebars-template">
     <h2 class="text-center text-secondary">Available Shoes</h2>
     <table class="bg-light">
-      <tbody>
+      <tbody class="shoeList">
         <tr>
           <th class="">Brand</th>
           <th class="">Color</th>
@@ -34,7 +34,7 @@
           <td>R{{cash}}</td>
           <td>{{size}}</td>
           <td>{{in_stock}}</td>
-          <td><button id="buyBtn" class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal">BUY</button></td>
+          <td><button name="buyBtn" value="{{_id}}" class="btn btn-success" type="button">BUY</button></td>
         </tr>
         {{/each}}
       </tbody>
@@ -64,16 +64,16 @@
     </table>
   </script>
 
-  <script id="buyShoeTemplate" type="text/x-handlebars-template">
-    {{#each shoes}}
-    <input id="buyShoe" class="form-control" type="text" name="" value="{{brand}}">
-    <p>{{brand}}</p>
-    {{/each}}
+  <script id="modalTemplate" type="text/x-handlebars-template">
+    <!-- {{#each shoes}} -->
+    <input id="buyShoe" class="form-control" type="text" name="" value="">
+    <!-- {{/each}} -->
   </script>
+
 </head>
 
 <body>
-  <div class="container">
+  <!-- HANDLEBARS TEMPLATE FOR DISPLAY THE BUY MODAL -->
     <!-- MODAL -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -88,10 +88,7 @@
           </div>
           <div class="modal-body">
             Brand
-            <div id="brandBeingBought">
-              <input id="buyShoe" class="form-control" type="text" name="" value="">
-              <!-- Quantity
-            <input id="buyQty" class="form-control col-lg-3"type="number" name="" value=""> -->
+            <div id="modalOutput">
 
             </div>
           </div>
@@ -101,6 +98,12 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- END OF MODAL -->
+  <div class="container">
+    <!-- Handlebars output div for buy modal -->
+    <div id="modalOutput">
+
     </div>
 
     <h1 class="text-center"> Shoe API</h1>

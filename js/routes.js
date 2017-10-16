@@ -83,8 +83,7 @@ module.exports = function() {
 
   var sellShoes = function(req, res) {
     const shoeBought = req.params.id;
-    const shoeQty = req.params.id;
-
+    console.log(shoeBought);
 
     // going to my Database and finding then updating the number of shoes instock by minusing one shoe
     // this is done by using the "shoeBought" constant as the value to the "brand" property
@@ -94,7 +93,7 @@ module.exports = function() {
     // If there is an error the error will logged to the console
     // if there is no error the results from the Database are printed as JSON on the browser
     db.findOneAndUpdate({
-        brand: shoeBought
+        _id: ObjectId(shoeBought)
       }, {
         $inc: {
           in_stock: -1
@@ -109,7 +108,7 @@ module.exports = function() {
           console.log(results);
         }
       })
-    res.json(shoeBought); 
+    res.json(shoeBought);
   };
 
   // this function is for adding shoes to the API or Database
