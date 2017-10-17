@@ -22,7 +22,7 @@ $(function availableShoes() {
           shoes: data
         });
 
-        // introducing the "tbody" element by its class name 
+        // introducing the "tbody" element by its class name
         const shoeList  = document.querySelector('.shoeList')
         // event bubbling: added an eventListener on "tbody" element
         shoeList.addEventListener('click', function(evt){
@@ -47,9 +47,9 @@ $(function availableShoes() {
               },
               // if there is an error a pop-up alert with the error status code and the string "error"
               error: function(jqXHR) {
-                if (jqXHR.status !== 0) {
-                  alert(jqXHR.status + " error");
-                }
+                // if (jqXHR.status !== 0) {
+                //   alert(jqXHR.status + " error");
+                // }
               }
             }); //ajax call
 

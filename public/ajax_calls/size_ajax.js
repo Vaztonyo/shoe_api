@@ -46,7 +46,7 @@ $(function() {
       },
       // if there is an error a pop-up alert with the error status code and the string "error"
       error: function(jqXHR) {
-        alert(jqXHR.status + " error");
+        // alert(jqXHR.status + " error");
       }
     }); //ajax call
   }) //available shoe eventListener

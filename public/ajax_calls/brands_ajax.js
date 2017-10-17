@@ -15,7 +15,7 @@ $(function() {
   brandSearchBtn.addEventListener('click', function() {
     // hiding the table with available shoes when one searches for a particular brand
     $('#shoeTable').hide();
-    
+
     // the value of the brand search input field
     var brandValue = searchBrandInput.value
 
@@ -43,7 +43,7 @@ $(function() {
       },
       // if there is an error a pop-up alert with the error status code and the string "error"
       error: function(jqXHR) {
-        alert(jqXHR.status + " error");
+        // alert(jqXHR.status + " error");
       }
     }); //ajax call
   }) //available shoe eventListener

@@ -24,7 +24,7 @@ $(function() {
     var availStock = document.querySelector('#availStock');
     // API route for adding shoe to the database
     var url = "/api/shoes";
-    
+
     // AJAX call to add stock into the API and Database
     $.ajax({
       // the type of the AJAX call will be a "POST"
@@ -42,13 +42,14 @@ $(function() {
       // when the AJAX call is successfull the above data is passed through the annoymous function
       // and through the compiled Handlebars script which populates the empty div for the  shoe table
       success: function(data) {
+        console.log("brandName");
         availStock.innerHTML = compileAvailStock({
           shoes: data
         });
       },
       // on error of the AJAX call a pop-up error will be alerted with its status code and the word "error"
       error: function(jqXHR) {
-        alert(jqXHR.status + " error");
+        // alert(jqXHR.status + " error");
       }
     }); //ajax call
   }) //available shoe eventListener

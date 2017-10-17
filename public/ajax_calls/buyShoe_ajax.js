@@ -17,9 +17,9 @@ $(function() {
       },
       // if there is an error a pop-up alert with the error status code and the string "error"
       error: function(jqXHR) {
-        if (jqXHR.status !== 0) {
-          alert(jqXHR.status + " error");
-        }
+        // if (jqXHR.status !== 0) {
+        //   alert(jqXHR.status + " error");
+        // }
       }
     }); //ajax call
   } //end of "buyShoe" function
