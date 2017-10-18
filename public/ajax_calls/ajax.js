@@ -22,6 +22,8 @@ $(function availableShoes() {
           shoes: data
         });
 
+        ///////////////////////////////////////////////////////////////////////////
+
         // introducing the "tbody" element by its class name
         const shoeList  = document.querySelector('.shoeList')
         // event bubbling: added an eventListener on "tbody" element
@@ -56,42 +58,7 @@ $(function availableShoes() {
 
         });
 
-        ////////////////////////////////////////////////////////////////////////////////////////
-        // introducing the "tbody" element by its class name
-        const admin_panel = document.querySelector('.admin_panel btn                                                                                                                                                                                                                                                                                                                                                          ')
-
-        // event bubbling: added an eventListener on "tbody" element
-        admin_panel.addEventListener('click', function(evt) {
-          // finding the clicked element
-          var target = evt.target;
-          // getting the value of the clicked element
-          var shoeId = target.value;
-          console.log(shoeId);
-          console.log(target);
-          // API route for deleting shoes to the database
-          var url = "/api/shoes/delete" + shoeId;
-
-          // AJAX call to add stock into the API and Database
-          $.ajax({
-            // the type of the AJAX call will be a "POST"
-            type: "POST",
-            // the "url" property takes the value of the above "url" varaible
-            url: url,
-            // when the AJAX call is successfull the above data is passed through the annoymous function
-            // and through the compiled Handlebars script which populates the empty div for the  shoe table
-            success: function(data) {
-              // alertMsg.innerHTML = "Shoe Added";
-              availStock.innerHTML = compileAvailStock({
-                shoes: data
-              });
-            },
-            // on error of the AJAX call a pop-up error will be alerted with its status code and the word "error"
-            error: function(jqXHR) {
-              // alert(jqXHR.status + " error");
-            }
-          }); //ajax call
-        }) //available shoe eventListener
-
+        ///////////////////////////////////////////////////////////////////////////////////////
 
       },
       // if there is an error a pop-up alert with the error status code and the string "error"

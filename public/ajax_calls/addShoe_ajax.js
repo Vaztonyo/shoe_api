@@ -7,6 +7,10 @@ $(function addShoeAjax() {
     // prevents form's default behavior when admin submits the form for adding stock
     event.preventDefault();
 
+    setTimeout(function() {
+      location.reload();
+    }, 30000);
+
     // introducing HTML admin entry points for new stock
     const brandName = document.querySelector('#brandName');
     const shoeColor = document.querySelector('#shoeColor');
