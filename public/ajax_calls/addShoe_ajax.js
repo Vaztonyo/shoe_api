@@ -1,4 +1,4 @@
-$(function() {
+$(function addShoeAjax() {
 
   // introducing the "addStockBtn" button for adding stock
   const addStockBtn = document.querySelector('#addStockBtn');
@@ -13,6 +13,10 @@ $(function() {
     const cash = document.querySelector('#cash');
     const size = document.querySelector('#size');
     const in_stock = document.querySelector('#in_stock');
+
+    // alert message
+    const alertMsg = document.querySelector('.alert');
+
 
     // alert message when a shoe has been successfully added
     var successMsg = document.querySelector('#successMsg');
@@ -32,7 +36,7 @@ $(function() {
       // the "url" property takes the value of the above "url" varaible
       url: url,
       // data is admin entry values that gets passed inside the success function and into the database
-      data : {
+      data: {
         brand: brandName.value,
         color: shoeColor.value,
         cash: cash.value,
@@ -42,17 +46,20 @@ $(function() {
       // when the AJAX call is successfull the above data is passed through the annoymous function
       // and through the compiled Handlebars script which populates the empty div for the  shoe table
       success: function(data) {
-        console.log("brandName");
+        // alertMsg.innerHTML = "Shoe Added";
         availStock.innerHTML = compileAvailStock({
           shoes: data
         });
+        availableShoes();
       },
       // on error of the AJAX call a pop-up error will be alerted with its status code and the word "error"
       error: function(jqXHR) {
-        // alert(jqXHR.status + " error");
+        alert(jqXHR.status + " error");
+      },
+      function() {
+        window.location.reload(true);
       }
     }); //ajax call
   }) //available shoe eventListener
-
 
 }); //end main function

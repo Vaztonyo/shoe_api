@@ -26,6 +26,25 @@ module.exports = function() {
       if (error) {
         console.log(error);
       } else {
+        // looping  through data available in the database
+        for (var i = 0; i < results.length; i++) {
+          // saving every entry that exists in the database in "databaseEntry"
+          var databaseEntry = results[i];
+          // saving all the quantity of shoes in the database in "numberOfShoesInStock"
+          var numberOfShoesInStock = databaseEntry.in_stock;
+          // checking if any shoes in stock have the value of zero and then removing them from the database and then checking for errors
+          if (numberOfShoesInStock === 0) {
+            db.remove({
+              in_stock: 0
+            }, function(error, results) {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log("A shoe has been deleted from the database because it is sold out");
+              }
+            })
+          }
+        }
         res.json(results);
       };
     });
@@ -149,6 +168,6 @@ module.exports = function() {
     findBrand,
     findBrandAnSize,
     sellShoes,
-    addShoe
+    addShoe 
   }
 }

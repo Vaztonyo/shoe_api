@@ -15,6 +15,9 @@
   <script src="handlebars-v4.0.5.js" charset="utf-8"></script>
   <script src="jquery-3.2.1.min.js" charset="utf-8"></script>
 
+  <!-- FONTAWESOME CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   <!-- HANDLEBARS TEMPLATE FOR ALL AVAILABLE SHOES -->
   <script id="shoeTemplate" type="text/x-handlebars-template">
     <h2 class="text-center text-secondary">Available Shoes</h2>
@@ -58,6 +61,7 @@
           <td>R{{cash}}</td>
           <td>{{size}}</td>
           <td>{{in_stock}}</td>
+          <td><button class="btn btn-success" onclick="buyShoe()"value="{{_id}}">Buy</button></td>
         </tr>
         {{/each}}
       </tbody>
@@ -73,33 +77,6 @@
 </head>
 
 <body>
-  <!-- HANDLEBARS TEMPLATE FOR DISPLAY THE BUY MODAL -->
-    <!-- MODAL -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
-            <!-- ALERT MESSAGE IF A SHOE IS BOUGHT -->
-            <p id="successMsg" class=""></p>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Brand
-            <div id="modalOutput">
-
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button id="checkoutBtn" type="button" class="btn btn-warning">Checkout</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END OF MODAL -->
   <div class="container">
     <!-- Handlebars output div for buy modal -->
     <div id="modalOutput">
@@ -115,6 +92,7 @@
       <div class="text-center col-lg-6">
         <div class="btn-group" role="group" aria-label="Basic example">
           <!-- <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button> -->
+          <button type="button" class="btn btn-secondary"><span class="fa fa-search"></span></button>
           <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
           <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
         </div>
