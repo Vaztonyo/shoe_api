@@ -33,7 +33,7 @@ module.exports = function() {
           // saving all the quantity of shoes in the database in "numberOfShoesInStock"
           var numberOfShoesInStock = databaseEntry.in_stock;
           // checking if any shoes in stock have the value of zero and then removing them from the database and then checking for errors
-          if (numberOfShoesInStock === 0) {
+          if (numberOfShoesInStock <= 0) {
             db.remove({
               in_stock: 0
             }, function(error, results) {
@@ -168,6 +168,6 @@ module.exports = function() {
     findBrand,
     findBrandAnSize,
     sellShoes,
-    addShoe 
+    addShoe
   }
 }
