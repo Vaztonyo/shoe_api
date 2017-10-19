@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Shoe API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- RELOADS MY PAGE EVERY 30s -->
-  <meta http-equiv="refresh" content="0.01"/>
+  <!-- <meta http-equiv="refresh" content="1"/> -->
   <!-- LOCAL BOOTSTRAP FILE -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <!-- CUSTOM CSS -->
@@ -71,6 +72,29 @@
         {{/each}}
       </tbody>
     </table>
+  <!-- HANDLEBARS TEMPLATE AFTER BUYING -->
+  <script id="buyTemplate" type="text/x-handlebars-template">
+    <table class="col-lg-2">
+      <tbody class="shoeList">
+        <tr>
+          <th class="">Brand</th>
+          <th class="">Color</th>
+          <th class="">Price</th>
+          <th class="">Size</th>
+          <th class="">Stock</th>
+        </tr>
+        {{#each shoes}}
+        <tr>
+          <td>{{brand}}</td>
+          <td>{{color}}</td>
+          <td>R{{cash}}</td>
+          <td>{{size}}</td>
+          <td>{{in_stock}}</td>
+          <td><button name="buyBtn" value="{{_id}}" class="btn btn-success" type="button">BUY</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </script>
 
   <script id="modalTemplate" type="text/x-handlebars-template">
@@ -94,14 +118,13 @@
     <div class="row">
       <!-- ADMIN BUTTON -->
       <a href="admin.html"><button id="adminBtn" class="btn btn-secondary" type="button" name="button">Admin</button></a>
+      <br></br>
       <div class="text-center col-lg-6">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <!-- <button type="button" id="avlShoesBtn" class="btn btn-secondary">Available Shoes</button> -->
-          <button type="button" class="btn btn-secondary"><span class="fa fa-search"></span></button>
-          <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand</button>
-          <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size</button>
+          <button type="button" id="brandBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchBrand" aria-expanded="false" aria-controls="searchBrand">Brand | <span class="fa fa-search"></span></button>
+          <button type="button" id="sizeBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#searchSize" aria-expanded="false" aria-controls="searchSize">Size | <span class="fa fa-search"></span></button>
         </div>
-        <br>
+        <br></br>
         <!-- <hr> -->
         <!-- COLLAPSE FOR BRAND SEARCH -->
         <div class="collapse  bg-light" id="searchBrand">
@@ -133,14 +156,15 @@
       <div class="bg-light col-lg-5 scroll">
         <div id="shoeTable" class="table table-hover"> </div>
         <div id="brandsTable" class="table table-hover float-right"> </div>
+        <div id="buyTable" class="table table-hover float-right"> </div>
       </div>
     </div>
   </div>
 </body>
 <!-- AJAX CALLS -->
+<script src="../ajax_calls/ajax.js" charset="utf-8"></script>
 <script src="../ajax_calls/size_ajax.js" charset="utf-8"></script>
 <script src="../ajax_calls/brands_ajax.js" charset="utf-8"></script>
-<script src="../ajax_calls/ajax.js" charset="utf-8"></script>
 <script src="../ajax_calls/buyShoe_ajax.js" charset="utf-8"></script>
 <script src="/bootstrap.min.js" charset="utf-8"></script>
 

@@ -1,4 +1,4 @@
-$(function addShoeAjax() {
+var addShoeAjax =  function () {
 
   // introducing the "addStockBtn" button for adding stock
   const addStockBtn = document.querySelector('#addStockBtn');
@@ -6,10 +6,6 @@ $(function addShoeAjax() {
   addStockBtn.addEventListener('click', function(event) {
     // prevents form's default behavior when admin submits the form for adding stock
     event.preventDefault();
-
-    setTimeout(function() {
-      location.reload();
-    }, 30000);
 
     // introducing HTML admin entry points for new stock
     const brandName = document.querySelector('#brandName');
@@ -65,5 +61,4 @@ $(function addShoeAjax() {
       }
     }); //ajax call
   }) //available shoe eventListener
-
-}); //end main function
+}; //end main function

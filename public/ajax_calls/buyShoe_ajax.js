@@ -1,5 +1,12 @@
-$(function() {
-  var buyShoe = function() {
+function buyShoe() {
+  // introducing the "tbody" element by its class name
+  var shoeList = document.querySelector('.shoeList');
+  // event bubbling: added an eventListener on "tbody" element
+  shoeList.addEventListener('click', function(evt) {
+    // finding the clicked element
+    var target = evt.target;
+    // getting the value of the clicked element
+    var shoeId = target.value;
     // API route for buying shoes. This is concatinated with the brand being searched
     var url = "/api/shoes/sold/" + shoeId;
 
@@ -11,9 +18,12 @@ $(function() {
       url: url,
       // "data" is all the data retrieved from the API or Database
       // this data is then populated in the compiled Handlebars script which gets placed inside the empty div using innerHTML
-      success: function(data) {
-        // successMsg.innerHTML = "Thank You",
-        console.log(data);
+      success: function(databaseData) {
+        shoeTable.innerHTML = compileTable({
+          shoes: data
+        });
+        console.log(databaseData);
+        console.log("Thank You for Buying");
       },
       // if there is an error a pop-up alert with the error status code and the string "error"
       error: function(jqXHR) {
@@ -22,5 +32,7 @@ $(function() {
         // }
       }
     }); //ajax call
-  } //end of "buyShoe" function
-}); //end main function
+  });
+
+}
+// ---------------------------------------------------------------------------------------------------------------------
