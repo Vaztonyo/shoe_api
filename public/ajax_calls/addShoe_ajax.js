@@ -50,15 +50,15 @@ $(function addShoe() {
         availStock.innerHTML = compileAvailStock({
           shoes: data
         });
-        get();
       },
       // on error of the AJAX call a pop-up error will be alerted with its status code and the word "error"
       error: function(jqXHR) {
-        alert(jqXHR.status + " error");
-      },
-      function() {
-        window.location.reload(true);
+        // alert(jqXHR.status + " error");
       }
+      // function() {
+      //   window.location.reload(true);
+      // }
     }); //ajax call
+    window.location.reload();
   }) //available shoe eventListener
 }); //end main function
