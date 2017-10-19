@@ -29,7 +29,7 @@ $.ajax({
     // Below is an AJAX call for buying a shoe
 
       // introducing the "tbody" element by its class name
-      var shoeList = document.querySelector('.shoeList');
+      var shoeList = document.querySelector('.shoeList .btn');
       // event bubbling: added an eventListener on "tbody" element
       shoeList.addEventListener('click', function(evt) {
         // finding the clicked element
@@ -49,7 +49,7 @@ $.ajax({
           // this data is then populated in the compiled Handlebars script which gets placed inside the empty div using innerHTML
           success: function(databaseData) {
             shoeTable.innerHTML = compileTable({
-              shoes: data
+              shoes: databaseData
             });
             get();
             console.log(databaseData);

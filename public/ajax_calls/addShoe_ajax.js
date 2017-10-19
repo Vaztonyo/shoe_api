@@ -1,4 +1,4 @@
-var addShoeAjax =  function () {
+$(function addShoe() {
 
   // introducing the "addStockBtn" button for adding stock
   const addStockBtn = document.querySelector('#addStockBtn');
@@ -50,7 +50,7 @@ var addShoeAjax =  function () {
         availStock.innerHTML = compileAvailStock({
           shoes: data
         });
-        availableShoes();
+        get();
       },
       // on error of the AJAX call a pop-up error will be alerted with its status code and the word "error"
       error: function(jqXHR) {
@@ -61,4 +61,4 @@ var addShoeAjax =  function () {
       }
     }); //ajax call
   }) //available shoe eventListener
-}; //end main function
+}); //end main function

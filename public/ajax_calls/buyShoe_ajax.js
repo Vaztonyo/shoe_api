@@ -1,6 +1,6 @@
-function buyShoe() {
+$(function buyShoe() {
   // introducing the "tbody" element by its class name
-  var shoeList = document.querySelector('.shoeList');
+  var shoeList = document.querySelector('.shoeList .btn');
   // event bubbling: added an eventListener on "tbody" element
   shoeList.addEventListener('click', function(evt) {
     // finding the clicked element
@@ -20,10 +20,10 @@ function buyShoe() {
       // this data is then populated in the compiled Handlebars script which gets placed inside the empty div using innerHTML
       success: function(databaseData) {
         shoeTable.innerHTML = compileTable({
-          shoes: data
+          shoes: databaseData
         });
-        console.log(databaseData);
-        console.log("Thank You for Buying");
+        get();
+        alert("Thank You for Buying");
       },
       // if there is an error a pop-up alert with the error status code and the string "error"
       error: function(jqXHR) {
@@ -34,5 +34,4 @@ function buyShoe() {
     }); //ajax call
   });
 
-}
-// ---------------------------------------------------------------------------------------------------------------------
+})

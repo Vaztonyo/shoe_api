@@ -52,7 +52,7 @@
   <!-- HANDLEBARS TEMPLATE AVAILABLE BRANDS -->
   <script id="brandsTemplate" type="text/x-handlebars-template">
     <table class="col-lg-2">
-      <tbody class="shoeList">
+      <tbody class="">
         <tr>
           <th class="">Brand</th>
           <th class="">Color</th>
@@ -72,31 +72,6 @@
         {{/each}}
       </tbody>
     </table>
-  <!-- HANDLEBARS TEMPLATE AFTER BUYING -->
-  <script id="buyTemplate" type="text/x-handlebars-template">
-    <table class="col-lg-2">
-      <tbody class="shoeList">
-        <tr>
-          <th class="">Brand</th>
-          <th class="">Color</th>
-          <th class="">Price</th>
-          <th class="">Size</th>
-          <th class="">Stock</th>
-        </tr>
-        {{#each shoes}}
-        <tr>
-          <td>{{brand}}</td>
-          <td>{{color}}</td>
-          <td>R{{cash}}</td>
-          <td>{{size}}</td>
-          <td>{{in_stock}}</td>
-          <td><button name="buyBtn" value="{{_id}}" class="btn btn-success" type="button">BUY</button></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </script>
-
   <script id="modalTemplate" type="text/x-handlebars-template">
     <!-- {{#each shoes}} -->
     <input id="buyShoe" class="form-control" type="text" name="" value="">
@@ -107,11 +82,6 @@
 
 <body>
   <div class="container">
-    <!-- Handlebars output div for buy modal -->
-    <div id="modalOutput">
-
-    </div>
-
     <h1 class="text-center"> Shoe API</h1>
     <br>
     <!-- MAIN BUTTON GROUP -->
@@ -154,9 +124,8 @@
 
       <!-- HANDLEBARS OUTPUT DIVS -->
       <div class="bg-light col-lg-5 scroll">
-        <div id="shoeTable" class="table table-hover"> </div>
+        <div id="shoeTable" class="table table-hover shoeList"> </div>
         <div id="brandsTable" class="table table-hover float-right"> </div>
-        <div id="buyTable" class="table table-hover float-right"> </div>
       </div>
     </div>
   </div>
